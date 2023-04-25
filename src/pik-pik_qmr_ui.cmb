@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
+<cambalache-project version="0.10.3" target_tk="gtk-4.0">
+  <ui>
+	(1,3,"pik-pik_qmr-main","pik-pik_qmr-main.ui","PIK-PIK QuickMacroRFID","GPL-3.0-or-later","Valentin the Degu &lt;degu@pik-pik.ee&gt;",None,None,None)
+  </ui>
+  <object>
+	(1,3,"GtkApplicationWindow","PikPikQmrWindow",None,None,None,None,None),
+	(1,6,"GtkBox","box_main",3,None,None,None,None),
+	(1,9,"GtkBox","menu_box",6,None,None,None,None),
+	(1,10,"GtkMenuButton","menubtn_file",9,None,None,None,None),
+	(1,11,"GtkMenuButton","menubtn_tools",9,None,None,None,1),
+	(1,12,"GtkMenuButton","menubtn_help",9,None,None,None,2),
+	(1,13,"GtkLabel","label",6,None,None,None,1),
+	(1,14,"GtkDialog","dialog_card_tool",None,None,None,None,None),
+	(1,15,"GtkPopoverMenuBar","menu_popover",6,None,None,None,2),
+	(1,16,"GtkMenuButton","jjjjj",15,None,None,None,None)
+  </object>
+  <object_property>
+	(1,3,"GtkApplicationWindow","show-menubar","True",None,None,None,None,None),
+	(1,3,"GtkWidget","can-focus","False",None,None,None,None,None),
+	(1,3,"GtkWindow","default-height","480",None,None,None,None,None),
+	(1,3,"GtkWindow","default-width","640",None,None,None,None,None),
+	(1,3,"GtkWindow","title","PIK-PIK QuickMacroRFID 0.1",None,None,None,None,None),
+	(1,6,"GtkOrientable","orientation","vertical",None,None,None,None,None),
+	(1,9,"GtkWidget","halign","start",None,None,None,None,None),
+	(1,9,"GtkWidget","valign","start",None,None,None,None,None),
+	(1,10,"GtkMenuButton","has-frame","False",None,None,None,None,None),
+	(1,10,"GtkMenuButton","label","File",None,None,None,None,None),
+	(1,10,"GtkWidget","halign","start",None,None,None,None,None),
+	(1,10,"GtkWidget","valign","start",None,None,None,None,None),
+	(1,11,"GtkMenuButton","has-frame","False",None,None,None,None,None),
+	(1,11,"GtkMenuButton","label","Tools",None,None,None,None,None),
+	(1,11,"GtkWidget","halign","start",None,None,None,None,None),
+	(1,11,"GtkWidget","valign","start",None,None,None,None,None),
+	(1,12,"GtkMenuButton","has-frame","False",None,None,None,None,None),
+	(1,12,"GtkMenuButton","label","About",None,None,None,None,None),
+	(1,12,"GtkWidget","halign","start",None,None,None,None,None),
+	(1,12,"GtkWidget","valign","start",None,None,None,None,None),
+	(1,13,"GtkLabel","label","~(__^&gt; test test test &lt;^__)~",None,None,None,None,None),
+	(1,13,"GtkWidget","can-focus","False",None,None,None,None,None),
+	(1,13,"GtkWidget","halign","start",None,None,None,None,None),
+	(1,13,"GtkWidget","margin-bottom","5",None,None,None,None,None),
+	(1,13,"GtkWidget","margin-end","5",None,None,None,None,None),
+	(1,13,"GtkWidget","margin-start","5",None,None,None,None,None),
+	(1,13,"GtkWidget","margin-top","5",None,None,None,None,None),
+	(1,13,"GtkWidget","valign","start",None,None,None,None,None),
+	(1,16,"GtkMenuButton","label","jhgjkhgjh",None,None,None,None,None)
+  </object_property>
+</cambalache-project>

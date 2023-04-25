@@ -1,0 +1,6 @@
+data/ee.pik_pik.qmr.desktop.in
+data/ee.pik_pik.qmr.appdata.xml.in
+data/ee.pik_pik.qmr.gschema.xml
+src/main.c
+src/pik-pik_qmr-window.c
+src/pik-pik_qmr-window.ui

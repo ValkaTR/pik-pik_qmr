@@ -1,0 +1,45 @@
+{
+    "app-id" : "ee.pik_pik.qmr",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "43",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "pik-pik_qmr",
+    "finish-args" : [
+        "--share=network",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland"
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "pik-pik_qmr",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "file:///home/valka/Projects"
+                }
+            ],
+            "config-opts" : [
+                ""
+            ]
+        }
+    ],
+    "build-options" : {
+        "cflags": "-O0 -g -Wno-declaration-after-statement -Wno-unused-function",
+        "cxxflags": "-O0 -g -Wno-declaration-after-statement -Wno-unused-function",
+        "env" : { "V": "1" }
+    }
+}

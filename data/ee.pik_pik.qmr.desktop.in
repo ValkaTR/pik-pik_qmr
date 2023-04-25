@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=PIK-PIK QuickMacro RFID
+Exec=pik-pik_qmr
+Icon=ee.pik_pik.qmr
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

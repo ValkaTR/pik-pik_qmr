@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="pik-pik_qmr">
+	<schema id="ee.pik_pik.qmr" path="/ee/pik_pik/qmr/">
+	</schema>
+</schemalist>

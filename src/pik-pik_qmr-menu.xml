@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <menu id="menu_file">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_New</attribute>
+        <attribute name="action">app.new</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Open...</attribute>
+        <attribute name="action">app.open</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Save As...</attribute>
+        <attribute name="action">app.save</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="menu_tools">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Card Tool</attribute>
+        <attribute name="action">win.card_tool</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Play Tune</attribute>
+        <attribute name="action">win.play_tune</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="menu_help">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Manual</attribute>
+        <attribute name="action">win.manual</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_About</attribute>
+        <attribute name="action">win.about</attribute>
+      </item>
+    </section>
+  </menu>"
+</interface>
+
+<!--
+      menumodel = g_menu_new( );
+    g_menu_append( menumodel, "New", "app.new" );
+    g_menu_append( menumodel, "Open", "app.open" );
+    g_menu_append( menumodel, "Save As", "app.save" );
+    g_menu_append( menumodel, "Quit", "app.quit" );
+    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menu_file), G_MENU_MODEL(menumodel) );
+
+    menumodel = g_menu_new( );
+    g_menu_append( menumodel, "Card Tool", "win.card_tool" );
+    g_menu_append( menumodel, "Play Tune", "win.play_tune" );
+    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menu_tools), G_MENU_MODEL(menumodel) );
+    
+    menumodel = g_menu_new( );
+    g_menu_append( menumodel, "Manual", "win.manual" );
+    g_menu_append( menumodel, "About", "win.about" );
+    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menu_help), G_MENU_MODEL(menumodel) );
+-->
+
+
