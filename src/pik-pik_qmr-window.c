@@ -51,9 +51,9 @@ static void pik_pik_qmr_window_class_init( PikPikQmrWindowClass *klass )
     //gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, header_bar );
     gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, label );
 
-    gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, menubtn_file );
-    gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, menubtn_tools );
-    gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, menubtn_help );
+    //gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, menubtn_file );
+    //gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, menubtn_tools );
+    //gtk_widget_class_bind_template_child( widget_class, PikPikQmrWindow, menubtn_help );
 }
 
 // #############################################################################
@@ -61,46 +61,6 @@ static void pik_pik_qmr_window_class_init( PikPikQmrWindowClass *klass )
 static void pik_pik_qmr_window_init( PikPikQmrWindow *self )
 {
     gtk_widget_init_template( GTK_WIDGET(self) );
-
-    /*GMenu *menumodel;
-    GMenu *submenu;
-
-    menumodel = g_menu_new( );
-    g_menu_append( menumodel, "New", "app.new" );
-    g_menu_append( menumodel, "Open", "app.open" );
-    g_menu_append( menumodel, "Save As", "app.save" );
-    g_menu_append( menumodel, "Quit", "app.quit" );
-    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menu_file), G_MENU_MODEL(menumodel) );
-
-    menumodel = g_menu_new( );
-    g_menu_append( menumodel, "Card Tool", "win.card_tool" );
-    g_menu_append( menumodel, "Play Tune", "win.play_tune" );
-    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menu_tools), G_MENU_MODEL(menumodel) );
-    
-    menumodel = g_menu_new( );
-    g_menu_append( menumodel, "Manual", "win.manual" );
-    g_menu_append( menumodel, "About", "win.about" );
-    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menu_help), G_MENU_MODEL(menumodel) );*/
-
-    
-
-    // attach menumodels from xml file menu buttons on the window
-    
-    /*GtkBuilder *builder = gtk_builder_new_from_resource( "/ee/pik_pik/qmr/pik-pik_qmr-menu.xml" );
-    
-    GMenuModel *menumodel = G_MENU_MODEL( gtk_builder_get_object( builder, "menu_file" ) );
-    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menubtn_file), menumodel );
-
-    menumodel = G_MENU_MODEL( gtk_builder_get_object( builder, "menu_tools" ) );
-    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menubtn_tools), menumodel );
-
-    menumodel = G_MENU_MODEL( gtk_builder_get_object( builder, "menu_help" ) );
-    gtk_menu_button_set_menu_model( GTK_MENU_BUTTON(self->menubtn_help), menumodel );
-
-    g_object_unref( builder );*/
-
-    gtk_application_window_set_show_menubar( GTK_APPLICATION_WINDOW(self), true );
-    
 }
 
 // #############################################################################

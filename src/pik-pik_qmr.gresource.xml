@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/ee/pik_pik/qmr">
-    <file preprocess="xml-stripblanks">pik-pik_qmr-window.ui</file>
     <file preprocess="xml-stripblanks">pik-pik_qmr-main.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
     <file preprocess="xml-stripblanks">pik-pik_qmr-menu.xml</file>

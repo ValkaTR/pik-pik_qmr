@@ -51,55 +51,61 @@ PikPikQmrApplication *pik_pik_qmr_application_new( const char *application_id, G
 // 
 static void pik_pik_qmr_application_activate( GApplication *app )
 {
-    GtkWindow *window;
-
     g_assert( PIK_PIK_QMR_IS_APPLICATION( app ) );
 
-    window = gtk_application_get_active_window( GTK_APPLICATION( app ) );
+    GtkWindow *window = gtk_application_get_active_window( GTK_APPLICATION(app) );
     if( window == NULL )
         window = g_object_new( PIK_PIK_QMR_TYPE_WINDOW, "application", app, NULL );
-    
+
+    // display a menubar for the app menu and menubar as needed
+    gtk_application_window_set_show_menubar( GTK_APPLICATION_WINDOW(window), TRUE );
+
     gtk_window_present( window );
-
-    
-  /*GMenu *menubar = g_menu_new( );
-  GMenuItem *menu_item_menu = g_menu_item_new( "Menu", NULL );
-  GMenu *menu = g_menu_new( );
-  GMenuItem *menu_item_quit = g_menu_item_new( "Quit", "app.quit" );
-  g_menu_append_item( menu, menu_item_quit );
-  g_object_unref( menu_item_quit );
-  g_menu_item_set_submenu( menu_item_menu, G_MENU_MODEL (menu) );
-  g_menu_append_item( menubar, menu_item_menu );
-  g_object_unref( menu_item_menu );*/
-
-        // attach menumodels from xml file menu buttons on the window
-    
-    GtkBuilder *builder = gtk_builder_new_from_resource( "/ee/pik_pik/qmr/pik-pik_qmr-menu.xml" );
-    GMenuModel *menubar = G_MENU_MODEL( gtk_builder_get_object( builder, "menu_file" ) );
-    g_object_unref( builder );
-
-  gtk_application_set_menubar( GTK_APPLICATION(app), G_MENU_MODEL(menubar) );
 }
 
 // #############################################################################
 //
 // STARTUP
-// 
-static void pik_pik_qmr_application_startup( GApplication *app )
+//
+static void pik_pik_qmr_application_startup( GApplication *application )
 {
-    g_assert( PIK_PIK_QMR_IS_APPLICATION(app) );
-
+    g_assert( PIK_PIK_QMR_IS_APPLICATION(application) );
+    PikPikQmrApplication *self = PIK_PIK_QMR_APPLICATION(application);
     //GtkWindow *window = gtk_application_get_active_window( GTK_APPLICATION(app) );
-
-    // attach menumodels from xml file menu buttons on the window
     
+    //
+    // chain up to the GTK+ implementation early, so gtk_init()
+    // is called for us.
+    //
+    // without this line, following error is emitted:
+    // (pik-pik_qmr:2): GLib-GIO-CRITICAL **: 07:30:03.891: GApplication subclass
+    //   'PikPikQmrApplication' failed to chain up on ::startup (from start of override function)
+    //
+    // stolen from nautilus/src/nautilus-application.c:1168
+    //
+    G_APPLICATION_CLASS(pik_pik_qmr_application_parent_class)->startup( G_APPLICATION(self) );
+
+    //
+    // attach menumodels from xml file menu buttons on the window
+    //
     GtkBuilder *builder = gtk_builder_new_from_resource( "/ee/pik_pik/qmr/pik-pik_qmr-menu.xml" );
- 
-    GMenuModel *menumodel = G_MENU_MODEL( gtk_builder_get_object( builder, "menu_file" ) );
-
-    gtk_application_set_menubar( GTK_APPLICATION(app), menumodel );
-
+    GMenuModel *menumodel = G_MENU_MODEL( gtk_builder_get_object( builder, "menu_main" ) );
+    gtk_application_set_menubar( GTK_APPLICATION(application), menumodel );
     g_object_unref( builder );
+
+    //
+    // manual menu creation
+    //
+    /*GMenu *menubar = g_menu_new( );
+    GMenuItem *menu_item_menu = g_menu_item_new( "Menu", NULL );
+    GMenu *menu = g_menu_new( );
+    GMenuItem *menu_item_quit = g_menu_item_new( "Quit", "app.quit" );
+    g_menu_append_item( menu, menu_item_quit );
+    g_object_unref( menu_item_quit );
+    g_menu_item_set_submenu( menu_item_menu, G_MENU_MODEL (menu) );
+    g_menu_append_item( menubar, menu_item_menu );
+    g_object_unref( menu_item_menu );
+    gtk_application_set_menubar( GTK_APPLICATION(app), G_MENU_MODEL(menubar) );*/
 }
 
 // #############################################################################
@@ -108,11 +114,9 @@ static void pik_pik_qmr_application_class_init( PikPikQmrApplicationClass *klass
 {
     GApplicationClass *app_class = G_APPLICATION_CLASS(klass);
 
+    // function overriding
+    app_class->startup = pik_pik_qmr_application_startup;
     app_class->activate = pik_pik_qmr_application_activate;
-
-    // wtf?    
-    // (pik-pik_qmr:2): GLib-GIO-CRITICAL **: 22:45:47.643: GApplication subclass 'PikPikQmrApplication' failed to chain up on ::startup (from start of override function)
-    //app_class->startup = pik_pik_qmr_application_startup;
 }
 
 // #############################################################################

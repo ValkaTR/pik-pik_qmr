@@ -16,36 +16,6 @@
       <object class="GtkBox" id="box_main">
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkBox" id="menu_box">
-            <property name="halign">start</property>
-            <property name="valign">start</property>
-            <child>
-              <object class="GtkMenuButton" id="menubtn_file">
-                <property name="halign">start</property>
-                <property name="has-frame">False</property>
-                <property name="label">File</property>
-                <property name="valign">start</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuButton" id="menubtn_tools">
-                <property name="halign">start</property>
-                <property name="has-frame">False</property>
-                <property name="label">Tools</property>
-                <property name="valign">start</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuButton" id="menubtn_help">
-                <property name="halign">start</property>
-                <property name="has-frame">False</property>
-                <property name="label">About</property>
-                <property name="valign">start</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
           <object class="GtkLabel" id="label">
             <property name="can-focus">False</property>
             <property name="halign">start</property>
@@ -57,17 +27,67 @@
             <property name="valign">start</property>
           </object>
         </child>
+      </object>
+    </child>
+  </template>
+  <object class="GtkDialog" id="dialog_card_tool">
+    <property name="title" translatable="yes">Card Tool</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkPopoverMenuBar" id="menu_popover">
+          <object class="GtkBox">
             <child>
-              <object class="GtkMenuButton" id="jjjjj">
-                <property name="label">jhgjkhgjh</property>
+              <object class="GtkLabel">
+                <property name="label">ID:</property>
+                <property name="margin-bottom">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-start">10</property>
+                <property name="margin-top">10</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkText">
+                <property name="margin-bottom">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-start">10</property>
+                <property name="margin-top">10</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Status: </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_status"/>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <child>
+              <object class="GtkButton" id="button_read_id">
+                <property name="label" translatable="yes">Read ID</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button_write_id">
+                <property name="label" translatable="yes">Write ID</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button_cancel">
+                <property name="label" translatable="yes">Cancel</property>
               </object>
             </child>
           </object>
         </child>
       </object>
     </child>
-  </template>
-  <object class="GtkDialog" id="dialog_card_tool"/>
+  </object>
 </interface>
