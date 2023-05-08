@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/ee/pik_pik/qmr">
     <file preprocess="xml-stripblanks">pik-pik_qmr-main.ui</file>
+    <file preprocess="xml-stripblanks">pik-pik_qmr-card_tool.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
     <file preprocess="xml-stripblanks">pik-pik_qmr-menu.xml</file>
   </gresource>

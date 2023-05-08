@@ -31,11 +31,11 @@
       <section>
         <item>
           <attribute name="label" translatable="yes">_Card Tool</attribute>
-          <attribute name="action">win.card_tool</attribute>
+          <attribute name="action">app.card_tool</attribute>
         </item>
         <item>
           <attribute name="label" translatable="yes">_Play Tune</attribute>
-          <attribute name="action">win.play_tune</attribute>
+          <attribute name="action">app.play_tune</attribute>
         </item>
       </section>
     </submenu>
@@ -44,13 +44,13 @@
       <section>
         <item>
           <attribute name="label" translatable="yes">_Manual</attribute>
-          <attribute name="action">win.manual</attribute>
+          <attribute name="action">app.manual</attribute>
         </item>
       </section>
       <section>
         <item>
           <attribute name="label" translatable="yes">_About</attribute>
-          <attribute name="action">win.about</attribute>
+          <attribute name="action">app.about</attribute>
         </item>
       </section>
     </submenu>

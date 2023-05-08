@@ -1,3 +1,5 @@
+// #############################################################################
+
 /* pik-pik_qmr-window.h
  *
  * Copyright 2023 Valentin But
@@ -18,14 +20,24 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+// #############################################################################
+
 #pragma once
+
+// #############################################################################
 
 #include <gtk/gtk.h>
 
+// #############################################################################
+
 G_BEGIN_DECLS
 
-#define PIK_PIK_QMR_TYPE_WINDOW ( pik_pik_qmr_window_get_type( ) )
+#define PIK_PIK_QMR_TYPE_WINDOW (pik_pik_qmr_window_get_type( ))
 
-G_DECLARE_FINAL_TYPE( PikPikQmrWindow, pik_pik_qmr_window, PIK_PIK_QMR, WINDOW, GtkApplicationWindow )
+G_DECLARE_FINAL_TYPE(PikPikQmrWindow, pik_pik_qmr_window, PIK_PIK_QMR, WINDOW, GtkApplicationWindow)
 
 G_END_DECLS
+
+// #############################################################################
+
+

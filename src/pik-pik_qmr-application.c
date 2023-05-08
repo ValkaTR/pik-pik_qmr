@@ -26,6 +26,7 @@
 
 #include "pik-pik_qmr-application.h"
 #include "pik-pik_qmr-window.h"
+#include "pik-pik_qmr-card_tool.h"
 
 struct _PikPikQmrApplication
 {
@@ -33,6 +34,60 @@ struct _PikPikQmrApplication
 };
 
 G_DEFINE_TYPE( PikPikQmrApplication, pik_pik_qmr_application, GTK_TYPE_APPLICATION )
+
+// #############################################################################
+//
+// APP.* ACTIONS
+//
+
+static void pik_pik_qmr_application_card_tool_action( GSimpleAction *action, GVariant *parameter, gpointer app )
+{
+  PikPikQmrCardTool *card_tool;
+  GtkWindow *win;
+
+  win = gtk_application_get_active_window( GTK_APPLICATION(app) );
+
+  card_tool = pik_pik_qmr_card_tool_new( PIK_PIK_QMR_WINDOW(win) );
+
+  gtk_window_present( GTK_WINDOW(card_tool) );
+}
+
+static void pik_pik_qmr_application_about_action( GSimpleAction *action, GVariant *parameter, gpointer user_data )
+{
+    static const char *authors[] = { "Valentin the Degu <degu@pik-pik.ee>", NULL };
+    PikPikQmrApplication *self = user_data;
+    GtkWindow *window = NULL;
+
+    g_assert( PIK_PIK_QMR_IS_APPLICATION(self) );
+
+    window = gtk_application_get_active_window( GTK_APPLICATION(self) );
+
+    gtk_show_about_dialog(
+        window,
+        "program-name", "pik-pik_qmr",
+        "logo-icon-name", "ee.pik_pik.qmr",
+        "authors", authors,
+        "version", "0.1.0",
+        "copyright", "© 2023 PIK-PIK",
+        NULL
+    );
+}
+
+static void pik_pik_qmr_application_quit_action( GSimpleAction *action, GVariant *parameter, gpointer user_data )
+{
+    PikPikQmrApplication *self = user_data;
+
+    g_assert( PIK_PIK_QMR_IS_APPLICATION(self) );
+
+    g_application_quit( G_APPLICATION(self) );
+}
+
+static GActionEntry app_entries[] =
+{
+    { "card_tool", pik_pik_qmr_application_card_tool_action },
+    { "about", pik_pik_qmr_application_about_action },
+    { "quit", pik_pik_qmr_application_quit_action, NULL, NULL, NULL }
+};
 
 // #############################################################################
 //
@@ -106,6 +161,14 @@ static void pik_pik_qmr_application_startup( GApplication *application )
     g_menu_append_item( menubar, menu_item_menu );
     g_object_unref( menu_item_menu );
     gtk_application_set_menubar( GTK_APPLICATION(app), G_MENU_MODEL(menubar) );*/
+
+    const char *quit_accels[2] = { "<Ctrl>Q", NULL };
+
+    // map actions to C functions listed in app_entries
+    g_action_map_add_action_entries( G_ACTION_MAP(application), app_entries, G_N_ELEMENTS(app_entries), application );
+
+    // set keyboard accelerators that will trigger the given action
+    gtk_application_set_accels_for_action( GTK_APPLICATION(application), "app.quit", quit_accels );
 }
 
 // #############################################################################
@@ -120,64 +183,14 @@ static void pik_pik_qmr_application_class_init( PikPikQmrApplicationClass *klass
 }
 
 // #############################################################################
-
-static void pik_pik_qmr_application_about_action( GSimpleAction *action, GVariant *parameter, gpointer user_data )
-{
-    static const char *authors[] = { "Valentin the Degu", NULL };
-    PikPikQmrApplication *self = user_data;
-    GtkWindow *window = NULL;
-
-    g_assert( PIK_PIK_QMR_IS_APPLICATION(self) );
-
-    window = gtk_application_get_active_window( GTK_APPLICATION(self) );
-
-    gtk_show_about_dialog(
-        window,
-        "program-name", "pik-pik_qmr",
-        "logo-icon-name", "ee.pik_pik.qmr",
-        "authors", authors,
-        "version", "0.1.0",
-        "copyright", "© 2023 Valentin the Degu",
-        NULL
-    );
-}
-
-// #############################################################################
-
-static void pik_pik_qmr_application_quit_action( GSimpleAction *action, GVariant *parameter, gpointer user_data )
-{
-    PikPikQmrApplication *self = user_data;
-
-    g_assert( PIK_PIK_QMR_IS_APPLICATION(self) );
-
-    g_application_quit( G_APPLICATION(self) );
-}
-
-// #############################################################################
 //
 // INIT 
 // 
 
-static const GActionEntry app_actions[] =
-{
-    { "quit", pik_pik_qmr_application_quit_action },
-    { "about", pik_pik_qmr_application_about_action },
-};
 
 static void pik_pik_qmr_application_init( PikPikQmrApplication *self )
 {
-    g_action_map_add_action_entries(
-        G_ACTION_MAP(self),
-        app_actions,
-        G_N_ELEMENTS(app_actions),
-        self
-    );
 
-    gtk_application_set_accels_for_action(
-        GTK_APPLICATION(self),
-        "app.quit",
-        (const char *[]) { "<primary>q", NULL }
-    );
 }
 
 // #############################################################################

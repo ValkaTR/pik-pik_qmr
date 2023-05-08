@@ -1,13 +1,15 @@
 project('pik-pik_qmr', 'c',
           version: '0.1.0',
-    meson_version: '>= 0.59.0',
+    meson_version: '>= 0.63.3',
   default_options: [ 'warning_level=2', 'werror=false', 'c_std=gnu11', ],
 )
 
 i18n = import('i18n')
 gnome = import('gnome')
+pkg = import('pkgconfig')
 cc = meson.get_compiler('c')
 
+# Configurations
 config_h = configuration_data()
 config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'pik-pik_qmr')
@@ -71,14 +73,17 @@ test_c_args = [
   '-fno-strict-aliasing',
   ['-Werror=format-security', '-Werror=format=2'],
 ]
+
 if get_option('buildtype') != 'plain'
   test_c_args += '-fstack-protector-strong'
 endif
+
 foreach arg: test_c_args
   if cc.has_multi_arguments(arg)
     project_c_args += arg
   endif
 endforeach
+
 add_project_arguments(project_c_args, language: 'c')
 
 subdir('data')

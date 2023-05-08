@@ -1,7 +1,7 @@
 {
     "app-id" : "ee.pik_pik.qmr",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "43",
+    "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
     "command" : "pik-pik_qmr",
     "finish-args" : [
@@ -39,8 +39,8 @@
         }
     ],
     "build-options" : {
-        "cflags": "-O0 -g -Wno-declaration-after-statement -Wno-unused-function",
-        "cxxflags": "-O0 -g -Wno-declaration-after-statement -Wno-unused-function",
-        "env" : { "V": "1" }
+        "cflags" : "-O0 -g -Wno-declaration-after-statement -Wno-unused-function",
+        "cxxflags" : "-O0 -g -Wno-declaration-after-statement -Wno-unused-function",
+        "env" : {        }
     }
 }
