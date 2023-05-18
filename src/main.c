@@ -28,6 +28,22 @@
 
 #include "pik-pik_qmr-application.h"
 
+// for COM port
+#include <glib.h>
+#include <glib/gstdio.h>
+#include <gudev/gudev.h>
+#include <stdlib.h>
+#include <dirent.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string.h>
+#include <fcntl.h>
+#include <termios.h>
+#include <sys/ioctl.h>
+#include <linux/serial.h>
+
 // #############################################################################
 
 int main( int argc, char *argv[] )

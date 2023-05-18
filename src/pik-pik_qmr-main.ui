@@ -49,6 +49,16 @@
               </object>
             </child>
             <child>
+              <object class="GtkButton" id="button_connect">
+                <property name="label">Connect</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button_disconnect">
+                <property name="label">Disconnect</property>
+              </object>
+            </child>
+            <child>
               <object class="GtkButton" id="button_poke">
                 <property name="label" translatable="yes">Poke</property>
               </object>

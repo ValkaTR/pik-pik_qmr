@@ -9,17 +9,19 @@
 	(1,4,"GtkPaned",None,3,None,None,None,None,None),
 	(1,30,"GtkBox","box_utility",4,None,None,None,2,None),
 	(1,31,"GtkLabel","label_port",30,None,None,None,None,None),
-	(1,34,"GtkButton","button_poke",30,None,None,None,5,None),
-	(1,35,"GtkButton","button_read",30,None,None,None,6,None),
-	(1,36,"GtkButton","button_write",30,None,None,None,7,None),
-	(1,37,"GtkButton","button_verify",30,None,None,None,8,None),
-	(1,38,"GtkLabel","label_password",30,None,None,None,9,None),
-	(1,39,"GtkPasswordEntry","entry_password",30,None,None,None,10,None),
+	(1,34,"GtkButton","button_poke",30,None,None,None,7,None),
+	(1,35,"GtkButton","button_read",30,None,None,None,8,None),
+	(1,36,"GtkButton","button_write",30,None,None,None,9,None),
+	(1,37,"GtkButton","button_verify",30,None,None,None,10,None),
+	(1,38,"GtkLabel","label_password",30,None,None,None,11,None),
+	(1,39,"GtkPasswordEntry","entry_password",30,None,None,None,12,None),
 	(1,40,"GtkTextView","edit_main",4,None,None,None,3,None),
 	(1,41,"GtkButton","button_reload",30,None,None,None,4,None),
 	(1,42,"GtkDropDown","dropdown_port",30,None,None,None,1,None),
 	(1,43,"GtkSeparator",None,30,None,None,None,3,None),
-	(1,44,"GtkEntry","entry_port_other",30,None,None,None,2,None)
+	(1,44,"GtkEntry","entry_port_other",30,None,None,None,2,None),
+	(1,45,"GtkButton","button_disconnect",30,None,None,None,6,None),
+	(1,46,"GtkButton","button_connect",30,None,None,None,5,None)
   </object>
   <object_property>
 	(1,3,"GtkApplicationWindow","show-menubar","True",None,None,None,None,None),
@@ -57,6 +59,8 @@
 	(1,40,"GtkWidget","margin-start","10",None,None,None,None,None),
 	(1,40,"GtkWidget","margin-top","10",None,None,None,None,None),
 	(1,40,"GtkWidget","vexpand","True",None,None,None,None,None),
-	(1,41,"GtkButton","label","Reload List",None,None,None,None,None)
+	(1,41,"GtkButton","label","Reload List",None,None,None,None,None),
+	(1,45,"GtkButton","label","Disconnect",None,None,None,None,None),
+	(1,46,"GtkButton","label","Connect",None,None,None,None,None)
   </object_property>
 </cambalache-project>
